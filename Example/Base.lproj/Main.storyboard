@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10102" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10080"/>
+    </dependencies>
+    <scenes>
+        <!--Container-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Container" id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sya-aB-Yzu">
+                                <rect key="frame" x="248.5" y="285" width="103" height="30"/>
+                                <state key="normal" title="Show Progress">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showProgress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q0p-DC-4nP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6d-JL-mxp">
+                                <rect key="frame" x="277" y="247" width="30" height="30"/>
+                                <state key="normal" title="Fuji">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RYP-Kk-mBA" kind="presentation" id="Pe9-W7-zTk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sya-aB-Yzu" firstAttribute="top" secondItem="E6d-JL-mxp" secondAttribute="bottom" constant="8" id="azB-Zf-Nki"/>
+                            <constraint firstAttribute="centerY" secondItem="sya-aB-Yzu" secondAttribute="centerY" id="q5u-qV-fkf"/>
+                            <constraint firstAttribute="centerX" secondItem="sya-aB-Yzu" secondAttribute="centerX" id="sz6-Md-lyL"/>
+                            <constraint firstAttribute="centerX" secondItem="E6d-JL-mxp" secondAttribute="centerX" constant="8" id="vk2-Py-a2A"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="r8X-Md-nG5">
+            <objects>
+                <viewController id="RYP-Kk-mBA" customClass="ImageViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hMW-kS-Vmu"/>
+                        <viewControllerLayoutGuide type="bottom" id="won-JT-unv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yQH-Uw-y4N">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ST-ki-qvG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1ST-ki-qvG" secondAttribute="trailing" id="MkR-H8-ycb"/>
+                            <constraint firstItem="1ST-ki-qvG" firstAttribute="top" secondItem="yQH-Uw-y4N" secondAttribute="top" id="OPm-bp-ULT"/>
+                            <constraint firstItem="won-JT-unv" firstAttribute="top" secondItem="1ST-ki-qvG" secondAttribute="bottom" id="P83-Ti-Ur1"/>
+                            <constraint firstItem="1ST-ki-qvG" firstAttribute="leading" secondItem="yQH-Uw-y4N" secondAttribute="leading" id="nyZ-Ta-eWd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="1ST-ki-qvG" id="Zck-rz-Tpk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kc6-Zs-GDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1142" y="340"/>
+        </scene>
+    </scenes>
+</document>
