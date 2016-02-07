@@ -45,8 +45,8 @@ public class HUDPresentationController: UIPresentationController {
         return view
     }()
 
-    private lazy var HUDView: UIView = {
-        let visualEffectView = UIVisualEffectView(effect: self.HUDVisualEffect)
+    private lazy var HUDView: UIVisualEffectView = {
+        let visualEffectView = UIVisualEffectView()
         visualEffectView.frame = self.frameOfPresentedViewInContainerView()
         visualEffectView.layer.cornerRadius = self.cornerRadius
         visualEffectView.layer.masksToBounds = self.cornerRadius != 0.0
@@ -91,6 +91,7 @@ public class HUDPresentationController: UIPresentationController {
         NSLayoutConstraint.activateConstraints(constraints)
 
         presentingViewController.transitionCoordinator()?.animateAlongsideTransition({ context in
+            self.HUDView.effect = self.HUDVisualEffect
             self.dimmingView.alpha = 1.0
             self.presentingViewController.view.tintAdjustmentMode = .Dimmed
         }, completion: nil)
@@ -98,6 +99,11 @@ public class HUDPresentationController: UIPresentationController {
 
     public override func dismissalTransitionWillBegin() {
         presentingViewController.transitionCoordinator()?.animateAlongsideTransition({ context in
+            if #available(iOS 9.0, *) {
+                self.HUDView.effect = nil
+            } else {
+                // UIVisualEffectView.effect animation isn't available in iOS 8
+            }
             self.dimmingView.alpha = 0.0
             self.presentingViewController.view.tintAdjustmentMode = .Automatic
         }, completion: nil)
