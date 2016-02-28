@@ -8,6 +8,11 @@ HUDKit provides `HUDPresentationController`. This is the HUD interface as an imp
 
 HUDKit provides `HUDProgressViewController` also. This can be used as progress HUD easily.
 
+## Screenshots
+
+<img src="https://raw.githubusercontent.com/cockscomb/HUDKit/master/Screenshots/HUDPresentationController.png" width="414px" />
+<img src="https://raw.githubusercontent.com/cockscomb/HUDKit/master/Screenshots/HUDProgressViewController.png" width="414px" />
+
 ## Usage
 
 Your view controller must implements `UIViewControllerTransitioningDelegate` like below.
