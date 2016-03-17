@@ -78,7 +78,12 @@ public class HUDProgressViewController: UIViewController {
         self.status = status
         self.visualEffect = visualEffect
 
-        preferredContentSize = CGSizeMake(100.0, 100.0)
+        if let customView = customView {
+            let insets = UIEdgeInsets(top: -30, left: -30, bottom: -30, right: -30)
+            preferredContentSize = UIEdgeInsetsInsetRect(customView.bounds, insets).size
+        } else {
+            preferredContentSize = CGSizeMake(100.0, 100.0)
+        }
 
         modalPresentationStyle = .Custom
         transitioningDelegate = self
