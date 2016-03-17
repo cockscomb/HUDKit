@@ -67,13 +67,16 @@ public class HUDProgressViewController: UIViewController {
         }
     }
 
+    public var visualEffect: UIBlurEffectStyle?
+
     // MARK: - Initializer
 
-    public init(customView: UIView?, status: String?) {
+    public init(customView: UIView?, status: String?, visualEffect: UIBlurEffectStyle = .Dark) {
         super.init(nibName: "HUDProgressViewController", bundle: NSBundle(forClass: HUDProgressViewController.self))
 
         self.customView = customView
         self.status = status
+        self.visualEffect = visualEffect
 
         preferredContentSize = CGSizeMake(100.0, 100.0)
 
@@ -111,7 +114,7 @@ extension HUDProgressViewController: UIViewControllerTransitioningDelegate {
 
     public func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
         let HUD = HUDPresentationController(presentedViewController: presented, presentingViewController: presenting)
-        HUD.HUDVisualEffect = UIBlurEffect(style: .Dark)
+        HUD.HUDVisualEffect = UIBlurEffect(style: self.visualEffect ?? .Dark)
         return HUD
     }
 
