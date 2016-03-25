@@ -67,16 +67,16 @@ public class HUDProgressViewController: UIViewController {
         }
     }
 
-    public var blurEffect: UIBlurEffect?
+    public var visualEffect: UIVisualEffect?
 
     // MARK: - Initializer
 
-    public init(customView: UIView?, status: String?, blurEffect: UIBlurEffect? = nil) {
+    public init(customView: UIView?, status: String?, visualEffect: UIVisualEffect? = nil) {
         super.init(nibName: "HUDProgressViewController", bundle: NSBundle(forClass: HUDProgressViewController.self))
 
         self.customView = customView
         self.status = status
-        self.blurEffect = blurEffect ?? UIBlurEffect(style: .Dark)
+        self.visualEffect = visualEffect
 
         if let customView = customView {
             let insets = UIEdgeInsets(top: -30, left: -30, bottom: -30, right: -30)
@@ -119,7 +119,7 @@ extension HUDProgressViewController: UIViewControllerTransitioningDelegate {
 
     public func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
         let HUD = HUDPresentationController(presentedViewController: presented, presentingViewController: presenting)
-        HUD.HUDVisualEffect = self.blurEffect ?? UIBlurEffect(style: .Dark)
+        HUD.HUDVisualEffect = self.visualEffect ?? UIBlurEffect(style: .Dark)
         return HUD
     }
 
