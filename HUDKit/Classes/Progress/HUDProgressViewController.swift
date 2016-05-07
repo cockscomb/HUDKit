@@ -67,7 +67,7 @@ public class HUDProgressViewController: UIViewController {
         }
     }
 
-    public var visualEffect: UIVisualEffect?
+    private var visualEffect: UIVisualEffect?
 
     // MARK: - Initializer
 
